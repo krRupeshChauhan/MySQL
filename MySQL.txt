@@ -1,0 +1,139 @@
+1.show databases:
+->show databases;
+
+2.create database:
+->create database[database name];
+
+3 to use database:
+use databasename;
+use c3195;
+
+4.create table:
+->create table c3195(attributes,datatypeinsert into  sizes of attributes);
+create table student(sid int primary key,name varchar(50) not null, marks int(50));
+
+5.show all tables details:
+->desc tables;
+
+
+6.show table description:
+-> desc student;
+
+7.insert data in database:
+->insert into student(sid,name,marks) values (1,"Rupu",90);
+insert into student values (2,"rups",95);
+insert into student values (3,"Rup",85),(4,"Rupesh",80);
+
+
+8.retrive all data from database:
+->select * from student;
+select name,marks from student;
+select name from student;
+select * from student where sid=103;
+ 
+9.alter table :to modify add coloms later
+->alter table student add city varchar(20),add country varchar(20);
+
+
+10.update data in the table;
+->update student set  city="mumbai",country="india";
+update student set city="Delhi",country="india" where sid is 101;
+
+11. delete row from table:
+-> delete from student where sid=103;
+
+12.at the time of display , if ou want to change the column name temporary basis:
+->alias;
+select sid as "student id:,name as "student  name" from student;
+
+13.distinct (different result);
+->select distinct(country ) from student;
+ques-find out from which student are form
+->select distinct(city ) from student;
+->insert into student (sid ,name,marks,city,country) values(234,"anaya" 67,"jaipur","india");
+
+14. find out those  student details whose city is mumbai and country is india
+->select * from student where city="mumbai" and country="india";
+
+15.find out those  student details whose city is mumbai or country is india
+->select * from student where city="mumbai" or country="usa";
+
+16.select those students details whos id starts from 2 to 6 in range.
+->long way :
+select * from student where sid>=2 and sid<=6;
+->short way: using between
+select * from student where sid between 2 and 6;
+
+17.choose student details whos id is 2,5,8.
+->long way:
+select * from student sid=2 or sid=5 or sid=8;
+->short way: using in clause
+select * from student where sid in (2,5,7,8);
+
+18.select 4student details from beginning or top.
+->select * from student limit  4;
+
+19. sort the data:
+-> using order by clause
+select * from student order by name;
+
+descending order:
+->select * from student order by desc;
+->select * from student order by  sid desc limit 4;
+
+20.modify or update existing information :
+a:update student set name ="rup chauhan",marks =96 where  sid=8;
+
+21.to alter datatypes after creating table:
+alter table student modify column column_name datatype;
+a:alter table student modify column sid varchar;
+
+22. the like operator is used in a where clause to search for a specified pattern in a column.
+There are two wildcard often used in conjuction with the LIKE operator:
+
+1.the percent sign(%) reperesent zero , or multiple characters.
+2.the underscore (_) represent one , single character.
+* find out those student list whoes name starts from a;
+->select *from student where name like "a%";
+
+*find out those student list whoes name ends from a.
+->select *from student where name like "%a";
+
+*find out those student list whoes  there is "u" in 2nd letter in city.
+->select *from student where city  like "_u%";
+
+*find out  student  name that have 'an' in any position.
+->select *from student where name like "%an%";
+
+*find out any values that starts with s and are at least 3 characters in length:
+Select * from student where name like"s_%";
+Select * from student where name like "s_%_%";
+
+*find out any values that starts with s and ends with a;
+select * from student where name like "s%a";
+ select * from student where name like "_0";
+
+*find out any values that have a "n" in 2nd position and with a "g" ;
+select * from student where name like "_n%g;
+
+22.Not Like operator:
+find out  student  name that doesn'nt starts with a;
+select * from student where name like "a%";
+
+23.find out total sum of marks:
+select sum (marks) from student;
+select sum (marks) as "total marks" from  student;
+select avg (marks) as "total marks" from  student;
+select avg (marks) as "average marks" from  student;
+select min (marks) as "total marks" from  student;
+select min (marks) as "Minimum marks" from  student;
+select max(marks) as "Maximum marks" from  student;
+select count(*) from student;
+select count(sid) from student;
+
+24.drop one or multiple column:
+alter table student drop city;
+alter table student drop city ,drop country;
+
+
+31-01-2023
